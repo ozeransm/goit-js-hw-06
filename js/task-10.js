@@ -6,29 +6,23 @@ function getRandomHexColor() {
 const amount = document.getElementById('controls');
 const boxesDiv=document.getElementById('boxes');
 const createBtn = document.querySelector('[data-create]');
-const destroyBtn= document.querySelector('data-destroy');
-
-console.log(createBtn);
+const destroyBtn= document.querySelector('[data-destroy]');
 
 createBtn.addEventListener('click',handleCreateBtn);
-createBtn.addEventListener('click',handleDestroyBtn);
+destroyBtn.addEventListener('click',handleDestroyBtn);
 
 function handleCreateBtn(){
-  const boxDiv=new Array(parseInt(amount.firstElementChild.value));
-  let size=20;
-  console.log(boxDiv);
-  const box1 = boxDiv.reduce((box,el)=>{
-    size+=10;  
-    console.log('sdagsdfgdas',el);
-    return [...box, `<div width=${size} height=${size}></div>`];
-  },[]);
-  
+  boxesDiv.innerHTML=createBoxes(parseInt(amount.firstElementChild.value));
 }
-
+function handleDestroyBtn(){
+  boxesDiv.innerHTML='';
+}
 function createBoxes(amount){
-  const boxDiv=new Array(parseInt(amount.firstElementChild.value));
-  // for(let i=1;i<=parseInt(amount.firstElementChild.value);i++){
-    
-  // }
-
+  let size=30;
+  let boxDiv='';
+  for(let i=1;i<=amount;i++){    
+    boxDiv+= `<div style="height: ${size}px; width: ${size}px; background-color: ${getRandomHexColor()};"></div>`;
+    size+=10;
+  }
+  return boxDiv;
 }
