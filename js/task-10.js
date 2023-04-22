@@ -19,7 +19,7 @@ function handleCreateBtn(){
   // boxesDiv.innerHTML=createBoxes(parseInt(amount.firstElementChild.value));
 }
 function handleDestroyBtn(){
-  console.log(boxesDiv.children);
+  // console.log(boxesDiv.children);
   boxesDiv.innerHTML='';
 }
 function createBoxes(amount, step){
