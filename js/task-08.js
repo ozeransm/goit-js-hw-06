@@ -7,8 +7,8 @@ function handleSubmit(ev){
     const {elements:{email,password}}=ev.currentTarget;
     const objForm = ((email.value)&&(password.value))
     ? {[email.name]:email.value, [password.name]:password.value}
-    : alert("fill in all fields of the form") ;
+    : alert("fill in all fields of the form");
     ev.currentTarget.reset();
-    console.log(objForm);
+    objForm ? console.log(objForm) : {};
 }
 

@@ -12,7 +12,8 @@ createBtn.addEventListener('click',handleCreateBtn);
 destroyBtn.addEventListener('click',handleDestroyBtn);
 
 function handleCreateBtn(){
-  boxesDiv.innerHTML=createBoxes(parseInt(amount.firstElementChild.value));
+  boxesDiv.insertAdjacentHTML('afterbegin', createBoxes(parseInt(amount.firstElementChild.value)));
+  // boxesDiv.innerHTML=createBoxes(parseInt(amount.firstElementChild.value));
 }
 function handleDestroyBtn(){
   boxesDiv.innerHTML='';
