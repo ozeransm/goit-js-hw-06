@@ -12,16 +12,19 @@ createBtn.addEventListener('click',handleCreateBtn);
 destroyBtn.addEventListener('click',handleDestroyBtn);
 
 function handleCreateBtn(){
-  boxesDiv.insertAdjacentHTML('afterbegin', createBoxes(parseInt(amount.firstElementChild.value)));
+  const { min, max, step} = amount.firstElementChild;
+  (parseInt(amount.firstElementChild.value)>=min)&&(parseInt(amount.firstElementChild.value)<=max)
+  ? boxesDiv.insertAdjacentHTML('afterbegin', createBoxes(parseInt(amount.firstElementChild.value), parseInt(step)))
+  : console.log("value out of range");
   // boxesDiv.innerHTML=createBoxes(parseInt(amount.firstElementChild.value));
 }
 function handleDestroyBtn(){
   boxesDiv.innerHTML='';
 }
-function createBoxes(amount){
+function createBoxes(amount, step){
   let size=30;
   let boxDiv='';
-  for(let i=1;i<=amount;i++){    
+  for(let i=1;i<=amount;i+=step){    
     boxDiv+= `<div style="height: ${size}px; width: ${size}px; background-color: ${getRandomHexColor()};"></div>`;
     size+=10;
   }
