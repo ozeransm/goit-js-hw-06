@@ -14,11 +14,12 @@ destroyBtn.addEventListener('click',handleDestroyBtn);
 function handleCreateBtn(){
   const { min, max, step} = amount.firstElementChild;
   (parseInt(amount.firstElementChild.value)>=min)&&(parseInt(amount.firstElementChild.value)<=max)
-  ? boxesDiv.insertAdjacentHTML('afterbegin', createBoxes(parseInt(amount.firstElementChild.value), parseInt(step)))
+  ? boxesDiv.insertAdjacentHTML('beforeend', createBoxes(parseInt(amount.firstElementChild.value), parseInt(step)))
   : console.log("value out of range");
   // boxesDiv.innerHTML=createBoxes(parseInt(amount.firstElementChild.value));
 }
 function handleDestroyBtn(){
+  console.log(boxesDiv.children);
   boxesDiv.innerHTML='';
 }
 function createBoxes(amount, step){
