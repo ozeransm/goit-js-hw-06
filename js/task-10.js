@@ -23,11 +23,17 @@ function handleDestroyBtn(){
   boxesDiv.innerHTML='';
 }
 function createBoxes(amount, step){
-  let size=30;
+  let size=20;
   let boxDiv='';
   for(let i=1;i<=amount;i+=step){    
     boxDiv+= `<div style="height: ${size}px; width: ${size}px; background-color: ${getRandomHexColor()};"></div>`;
     size+=10;
   }
   return boxDiv;
+  // const boxDiv = new Array(amount);
+  // boxDiv.fill('');
+  // return boxDiv.reduce(akk=>{
+  //   size+=10;
+  //   return akk+=`<div style="height: ${size}px; width: ${size}px; background-color: ${getRandomHexColor()};"></div>`;
+  // },'');
 }
